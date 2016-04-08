@@ -33,15 +33,10 @@ public class Gui {
 	panel.setLayout(new GridBagLayout());		
 	
 	GridBagConstraints c = new GridBagConstraints();
-			
-	
-	
-	
-	
+		
 	/*
 	 * 
 	 * First panel containing program icon and search bar
-	 * 
 	 * 
 	 * 
 	 */
@@ -108,34 +103,23 @@ public class Gui {
 	 */
 	JPanel p3 = new JPanel();
 	p3.setLayout(new FlowLayout());
-	JButton add = new JButton("Add");
-	 
-	add.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			System.out.println("Add Button Pressed");
-		}
-	});
 	
+	//Action listener created and added to button
+	JButton add = new JButton("Add");
+	AddEntry addE = new AddEntry();
+	add.addActionListener(addE);
 	p3.add(add);
 	
+	//Action listener created and added to button
 	JButton delete = new JButton("Delete");
-	 
-	delete.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			System.out.println("Delete Button Pressed");
-		} 
-	});
-	
+	DeleteEntry del = new DeleteEntry();
+	delete.addActionListener(del);
 	p3.add(delete);
 	
+	//Action listener created and added to button
 	JButton edit = new JButton("Edit");
-	 
-	edit.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			System.out.println("Edit Button Pressed");
-		}
-	});
-	
+	EditEntry edd = new EditEntry();
+	edit.addActionListener(edd);
 	p3.add(edit);
 	 	
 	
