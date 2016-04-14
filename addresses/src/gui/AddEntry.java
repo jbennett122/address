@@ -1,10 +1,14 @@
 package gui;
 import javax.swing.*;
 
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.IOException;
+
+import io.*;
 
 public class AddEntry extends JFrame implements ActionListener {
 
@@ -13,6 +17,24 @@ public class AddEntry extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = -2290156079348542031L;
 
+	public JTextField first = new JTextField();
+	public JTextField last= new JTextField();
+	public JTextField numField= new JTextField(6);
+	public JTextField cityField = new JTextField(10);
+	private JTextField zipField = new JTextField(5);
+	private JTextField stateField =  new JTextField(2);
+	private JTextField phoneField = new JTextField(9);
+	private JTextField cellField = new JTextField(9);
+	
+	 	
+	JButton submit = new JButton("Submit");
+	JButton cancel = new JButton("Cancel");
+	
+	
+	JTextField e1Field = new JTextField(17);
+	JTextField e2Field = new JTextField(17);	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Add Button Pressed");
@@ -43,9 +65,20 @@ public class AddEntry extends JFrame implements ActionListener {
 		
 		/*
 		 * Text fields and labels for the name entry panel
+		 *** Text Fields moved out of constructor to be global for the 
+		 *class**
 		 */
-		JTextField last = new JTextField();
-		JTextField first = new JTextField();
+		
+
+		//first = new JTextField();
+		last = new JTextField();
+		numField = new JTextField(6);
+		cityField = new JTextField(10);
+		zipField = new JTextField(5);
+		stateField =  new JTextField(2);
+		phoneField = new JTextField(9);
+		cellField = new JTextField(9);
+		
 		JLabel ln = new JLabel("Last Name");
 		JLabel fn = new JLabel("First Name");
 		
@@ -59,12 +92,21 @@ public class AddEntry extends JFrame implements ActionListener {
 		 * Submit and cancel buttons
 		 * 
 		 */
-		JButton submit = new JButton("Submit");
-		JButton cancel = new JButton("Cancel");
 		
 		bottomPanel.add(submit);
 		bottomPanel.add(cancel);
-		
+		submit.addActionListener(new SubmitListener());
+		cancel.addActionListener(
+				new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						System.out.print("Cancel Button Pressed");
+						 addFrame.dispose();
+						
+					}
+									
+				});
 		
 		/*
 		 * 
@@ -73,13 +115,9 @@ public class AddEntry extends JFrame implements ActionListener {
 		 */
 		JLabel num = new JLabel("Address");
 		JLabel city = new JLabel("City");
-		JTextField numField = new JTextField(6);
-		JTextField cityField = new JTextField(10);
-		
 		JLabel zip = new JLabel("Zip Code");
 		JLabel state = new JLabel("State");
-		JTextField zipField = new JTextField(5);
-		JTextField stateField =  new JTextField(2);
+		
 		
 		leftPanel.add(num);
 		leftPanel.add(city);
@@ -98,13 +136,9 @@ public class AddEntry extends JFrame implements ActionListener {
 		 */
 		JLabel phone = new JLabel("Phone #");
 		JLabel cell = new JLabel("Cell #");
-		JTextField phoneField = new JTextField(9);
-		JTextField cellField = new JTextField(9);
-		
 		JLabel e1 = new JLabel("Email");
 		JLabel e2 = new JLabel("Email");
-		JTextField e1Field = new JTextField(17);
-		JTextField e2Field = new JTextField(17);
+		 
 		
 		rightPanel.add(phone);
 		rightPanel.add(e1);		
@@ -119,8 +153,7 @@ public class AddEntry extends JFrame implements ActionListener {
 		addFrame.add(bottomPanel,BorderLayout.SOUTH);
 		addFrame.add(leftPanel,BorderLayout.WEST);
 		addFrame.add(rightPanel,BorderLayout.EAST);
-		
-		
+			
 		addFrame.setSize(650, 200);
 		
 		 
@@ -130,17 +163,48 @@ public class AddEntry extends JFrame implements ActionListener {
 		
 		
 	}
-	
-	
+		
 	/*
 	 * 
 	 * TODO
-	 * add function that submits to the data base
+	 * add class that submits to the file system (database later)
 	 * function that checks input information ie only numbers in
 	 * zip codes or throw error?
 	 * 
 	 */
 	
+	
+	private class SubmitListener implements ActionListener{
+
+		@SuppressWarnings("null")
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.err.print("Submit listener1");
+			String fString = first.getText();
+			
+			System.err.print("Submit listener2");
+			String[] strings = null;
+			System.err.print("Submit listener3");
+			strings[0]= fString;
+			System.err.print("Submit listener4");
+			
+			
+			AddressObj ad = new AddressObj(strings);
+	 			
+			
+			try {
+				WriteObj.write(ad);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			 
+			
+			
+	 	}
+		
+		
+	}
 	
 	
 }

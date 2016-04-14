@@ -17,7 +17,7 @@ public class FileIO {
 		Scanner inputStream = null;
 		PrintWriter outputStream = null;
 		
-		System.out.print(1+"\n");
+		System.err.print(1+"\n");
 		try{
 			
 			inputStream = new Scanner(new BufferedReader(new FileReader("test1.txt")));
@@ -45,7 +45,13 @@ public class FileIO {
 			
 		}
 	}
+
+	
+	public static void addInfo(String[] args)throws IOException{
 		
+		
+		
+	}
 		
 		
 }

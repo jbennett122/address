@@ -22,15 +22,10 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.print(1+"\n");
-	//Gui gui = new Gui();
-		FileIO file = new FileIO();
+		System.err.print(1+"\n");
+	Gui gui = new Gui();
+	 
 		
-		try {
-			file.openFile(null);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 
 	}
 }
