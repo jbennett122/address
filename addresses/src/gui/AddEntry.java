@@ -16,23 +16,23 @@ public class AddEntry extends JFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = -2290156079348542031L;
-
+	JFrame addFrame = new JFrame();
 	public JTextField first = new JTextField();
 	public JTextField last= new JTextField();
 	public JTextField numField= new JTextField(6);
 	public JTextField cityField = new JTextField(10);
 	private JTextField zipField = new JTextField(5);
 	private JTextField stateField =  new JTextField(2);
-	private JTextField phoneField = new JTextField(9);
-	private JTextField cellField = new JTextField(9);
-	
+	private JTextField phoneField = new JTextField();
+	private JTextField cellField = new JTextField();
+	private JTextField e1Field = new JTextField();
+	private JTextField e2Field = new JTextField();
 	 	
 	JButton submit = new JButton("Submit");
 	JButton cancel = new JButton("Cancel");
 	
 	
-	JTextField e1Field = new JTextField(17);
-	JTextField e2Field = new JTextField(17);	
+ 	
 	
 	
 	@Override
@@ -49,7 +49,7 @@ public class AddEntry extends JFrame implements ActionListener {
 		 * bottom Panel for submit cancel buttons
 		 * 
 		 */
-		JFrame addFrame = new JFrame();
+		
 		JPanel leftPanel = new JPanel();
 		JPanel rightPanel = new JPanel();
 		JPanel topPanel = new JPanel();
@@ -70,14 +70,18 @@ public class AddEntry extends JFrame implements ActionListener {
 		 */
 		
 
-		//first = new JTextField();
+		first = new JTextField();
 		last = new JTextField();
 		numField = new JTextField(6);
 		cityField = new JTextField(10);
 		zipField = new JTextField(5);
 		stateField =  new JTextField(2);
-		phoneField = new JTextField(9);
-		cellField = new JTextField(9);
+		phoneField = new JTextField();
+		cellField = new JTextField();
+		e1Field = new JTextField(15);
+		e2Field = new JTextField(15);
+		
+		 
 		
 		JLabel ln = new JLabel("Last Name");
 		JLabel fn = new JLabel("First Name");
@@ -92,6 +96,10 @@ public class AddEntry extends JFrame implements ActionListener {
 		 * Submit and cancel buttons
 		 * 
 		 */
+		
+		submit = new JButton("Submit");
+		JButton cancel = new JButton("Cancel");
+		
 		
 		bottomPanel.add(submit);
 		bottomPanel.add(cancel);
@@ -176,20 +184,53 @@ public class AddEntry extends JFrame implements ActionListener {
 	
 	private class SubmitListener implements ActionListener{
 
-		@SuppressWarnings("null")
+		private String[] strings = new String[10];
+		 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.err.print("Submit listener1");
+			//System.err.print("Submit listener1");
 			String fString = first.getText();
+			String lString = last.getText();
+			String numString = numField.getText();
+			String cityString = cityField.getText();
+			String zipString = zipField.getText();
+			String stateString = stateField.getText();
+			String phoneString = phoneField.getText();
+			String cellString = cellField.getText();
+			String e1FString = e1Field.getText();
+			String e2FString = e2Field.getText();
 			
+						
+			fString.trim();
+			lString.trim();
+			numString.trim();
+			cityString.trim();
+			zipString.trim();
+			stateString.trim();
+			phoneString.trim();
+			cellString.trim();
+			e1FString.trim();
+			e2FString.trim();
+			
+			
+			
+			strings[0]=fString;
+			strings[1]=lString;
+			strings[2]=numString;
+			strings[3]=cityString;
+			strings[4]=zipString;
+			strings[5]=stateString;
+			strings[6]=phoneString;
+			strings[7]=cellString;
+			strings[8]=e1FString;
+			strings[9]=e2FString;
+			System.out.print(fString);
 			System.err.print("Submit listener2");
-			String[] strings = null;
+			
 			System.err.print("Submit listener3");
-			strings[0]= fString;
-			System.err.print("Submit listener4");
-			
-			
-			AddressObj ad = new AddressObj(strings);
+						
+			 			
+		    AddressObj ad = new AddressObj(strings);
 	 			
 			
 			try {
@@ -199,7 +240,7 @@ public class AddEntry extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			}
 			 
-			
+			 addFrame.dispose();
 			
 	 	}
 		
