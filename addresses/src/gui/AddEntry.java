@@ -6,7 +6,9 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import io.*;
 
@@ -231,15 +233,19 @@ public class AddEntry extends JFrame implements ActionListener {
 						
 			 			
 		    AddressObj ad = new AddressObj(strings);
-	 			
-			
-			try {
-				WriteObj.write(ad);
-			} catch (IOException e1) {
+	 		
+		    try {
+				FileOutputStream fOutputStream = new FileOutputStream("t.tmp");
+				ObjectOutputStream output = new ObjectOutputStream(fOutputStream);
+		    
+				output.writeObject(ad);
+				output.close();
+		    
+		    } catch (IOException e2) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				e2.printStackTrace();
 			}
-			 
+		    
 			 addFrame.dispose();
 			
 	 	}

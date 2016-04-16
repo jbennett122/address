@@ -1,6 +1,8 @@
 package io;
 
-public class AddressObj {
+import java.io.Serializable;
+
+public class AddressObj implements Serializable{
 
 	@SuppressWarnings("unused")
 	private String first;
@@ -27,10 +29,65 @@ public class AddressObj {
 		this.cell= args[7];
 		this.email1= args[8];
 		this.email2= args[9];
-
-		
-		
-		
 	}
+	
+	public String getFirst(){
+		
+		return this.first;
+	}
+	
+	public String getLast(){
+		
+		return this.last;
+	}
+	
+	public String getAdd(){
+		
+		return this.address;
+	}
+	
+	public String getCity(){
+		
+		return this.city;
+	}
+	
+	public String getState(){
+		
+		return this.state;
+	}
+	
+	public String getZip(){
+		
+		return this.zip;
+	}
+	
+	public String getPhone(){
+		
+		return this.phone;
+	}
+	
+	public String getCell(){
+		
+		return this.cell;
+	}
+	
+	public String getE1(){
+		
+		return this.email1;
+	}
+	
+	public String getE2(){
+		
+		return this.email2;
+	}
+	
+	/*
+	 * TODO
+	 * 
+	 * needs setters for the edit address button
+	 *  
+	 */
+	
+	
+}	
 
-}
