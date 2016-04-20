@@ -6,6 +6,7 @@ package main;
   
 import java.io.IOException;
 
+import gui.DisplayResults;
 import gui.Gui;
 import io.FileIO;
 import tests.*;
@@ -24,6 +25,7 @@ public class Main {
 	//testAddressObject tests =  new testAddressObject();
 	//tests.readObject();
 	
-	FileIO.retrieveAddress();
+	FileIO.retrieveAddress(); 
+	DisplayResults.display();
 	}
 }

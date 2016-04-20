@@ -89,7 +89,15 @@ public class Gui {
 	JPanel p2 = new JPanel();
 	p2.setLayout(new GridLayout());
 	//Will eventually import a document with results or pull from a database?
-	JTextArea results = new JTextArea("this is where results will be", 10,40); 
+	JTextArea results = new JTextArea(10,40); 
+	
+	results.setText("one\ntwo\nthree");
+    results.append("\nfour\nfive");	
+	
+	
+    
+    
+	
 	p2.add(results);
 	
 	
