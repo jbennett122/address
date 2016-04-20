@@ -7,6 +7,7 @@ package main;
 import java.io.IOException;
 
 import gui.Gui;
+import io.FileIO;
 import tests.*;
 
 /**
@@ -20,7 +21,9 @@ public class Main {
 	@SuppressWarnings("unused")
 	Gui gui = new Gui();
 	 
-	testAddressObject tests =  new testAddressObject();
-		 tests.readObject();
+	//testAddressObject tests =  new testAddressObject();
+	//tests.readObject();
+	
+	FileIO.retrieveAddress();
 	}
 }

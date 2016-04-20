@@ -17,7 +17,7 @@ public class testAddressObject {
 		AddressObj ad = (AddressObj) ois.readObject();
 		 
 		 
-		 System.out.println("This is first name "+ ad.getFirst());
+		 System.out.println("This is name "+ ad.getFirst() + ad.getLast());
 		 
 		 
     } catch (ClassNotFoundException e) {

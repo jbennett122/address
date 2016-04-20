@@ -93,6 +93,7 @@ public class Gui {
 	p2.add(results);
 	
 	
+	
 	/*
 	 * Third panel with buttons for adding, deleting and editing entries
 	 * into the address book.

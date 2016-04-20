@@ -190,7 +190,9 @@ public class AddEntry extends JFrame implements ActionListener {
 		 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
 			//System.err.print("Submit listener1");
+			
 			String fString = first.getText();
 			String lString = last.getText();
 			String numString = numField.getText();
@@ -201,8 +203,7 @@ public class AddEntry extends JFrame implements ActionListener {
 			String cellString = cellField.getText();
 			String e1FString = e1Field.getText();
 			String e2FString = e2Field.getText();
-			
-						
+									
 			fString.trim();
 			lString.trim();
 			numString.trim();
@@ -213,9 +214,7 @@ public class AddEntry extends JFrame implements ActionListener {
 			cellString.trim();
 			e1FString.trim();
 			e2FString.trim();
-			
-			
-			
+						
 			strings[0]=fString;
 			strings[1]=lString;
 			strings[2]=numString;
@@ -226,27 +225,14 @@ public class AddEntry extends JFrame implements ActionListener {
 			strings[7]=cellString;
 			strings[8]=e1FString;
 			strings[9]=e2FString;
-			System.out.print(fString);
-			System.err.print("Submit listener2");
-			
-			System.err.print("Submit listener3");
 						
-			 			
+			//System.err.print("Submit listener2");
+							 			
 		    AddressObj ad = new AddressObj(strings);
-	 		
-		    try {
-				FileOutputStream fOutputStream = new FileOutputStream("t.tmp");
-				ObjectOutputStream output = new ObjectOutputStream(fOutputStream);
+	 				    
+		    FileIO.storeAddress(ad);
 		    
-				output.writeObject(ad);
-				output.close();
-		    
-		    } catch (IOException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-		    
-			 addFrame.dispose();
+		    addFrame.dispose();
 			
 	 	}
 		
