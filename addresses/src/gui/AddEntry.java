@@ -230,7 +230,12 @@ public class AddEntry extends JFrame implements ActionListener {
 							 			
 		    AddressObj ad = new AddressObj(strings);
 	 				    
-		    FileIO.storeAddress(ad);
+		    try {
+				FileIO.storeAddress(ad);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		    
 		    addFrame.dispose();
 			
