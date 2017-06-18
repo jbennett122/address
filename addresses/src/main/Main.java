@@ -24,7 +24,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 	@SuppressWarnings("unused")
-	Gui gui = new Gui();
+	//Gui gui = new Gui();
 	 
 	//testAddressObject tests =  new testAddressObject();
 	//tests.readObject();

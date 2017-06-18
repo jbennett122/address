@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class FileIO {
@@ -28,7 +29,7 @@ public static AddressObj retrieveAddress() throws IOException{
 	    
 	    try {
 			  ad = (AddressObj) ois.readObject();
-			 			 
+			 	System.out.println("test");		 
 			 System.out.println("This is name "+ ad.getFirst() + ad.getLast());
 			 			 
 	    } catch (IOException | ClassNotFoundException e) {
@@ -55,9 +56,10 @@ try {
     while(cont){
     	
     	AddressObj ad=null;
-    	System.err.println(i);
+    	System.err.println("test" +i);
         try {
-        	ad = (AddressObj) ois.readObject();
+    
+        	ad = (AddressObj)ois.readObject();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -71,6 +73,8 @@ try {
           else{
         	  cont = false;
           }
+          
+          ois.close();
        }
 } catch (FileNotFoundException e) {
     // TODO Auto-generated catch block

@@ -87,7 +87,40 @@ public class AddressObj implements Serializable{
 	 * needs setters for the edit address button
 	 *  
 	 */
+	public void setFirst(String first){
+		
+		this.first= first;
+	}
 	
+	public void setLast(String last){
+		
+		this.last=last;
+		
+	}
+	
+	public void setAddress(String address){
+		
+		
+		this.address= address;
+	}
+		
+	public void setCity(String city){
+		
+		this.city = city;
+	}
+	
+	public void setState(String state){
+		
+		this.state= state;
+	}
+	
+	public void setZip(int zip){
+		
+			
+		this.zip=String.valueOf(zip);
+		
+		
+	}
 	
 }	
 
