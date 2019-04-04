@@ -29,27 +29,6 @@ public class Main {
 	//testAddressObject tests =  new testAddressObject();
 	//tests.readObject();
 	
-	 ArrayList<AddressObj> al = new ArrayList<AddressObj>();
-	
-	try{
-	
-		al = FileIO.retrieveAddresses(); 
-		int i = 0;
-		for(AddressObj a:al){
-			System.out.print(i);
-			System.out.print(a.getLast());
-			
-			i++;
-			
-		}
-	}catch(FileNotFoundException | EOFException e1){
-		e1.getStackTrace();	
-		
-		}
-	
-	
-	
-	//FileIO.retrieveAddress();
-	//DisplayResults.display();
+	 
 	}
 }

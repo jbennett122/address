@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class Gui {
 
@@ -51,9 +52,10 @@ public class Gui {
 	ImageIcon vesIcon = new ImageIcon(resized);
 	JLabel vesL = new JLabel(vesIcon);
 		
-	if(shouldWeightX){
-		c.weightx= 0.1;
+	/*if(shouldWeightX){
+		c.weightx= 0.5;
 			}
+	*/
 	/*
 	 * Icon formating in panel and implementation
 	 */
@@ -70,6 +72,7 @@ public class Gui {
 	/*
 	 *Search bar implementation  
 	 */
+	JLabel label = new JLabel("Search Bar:");
 	JTextField search = new JTextField();
 	c.fill= GridBagConstraints.HORIZONTAL;
 	c.anchor= GridBagConstraints.PAGE_START;
@@ -78,6 +81,7 @@ public class Gui {
 	c.weightx=0.8;
 	c.gridwidth=3;
 	c.insets = new Insets(10,0,10,0);
+	panel.add(label, c);
 	panel.add(search,c);
 			
 	
